@@ -25,6 +25,13 @@
       "devops": "DevOps & Tooling"
     }
   },
+  "projects": {
+    "label": "Work",
+    "heading": "Things I've Shipped",
+    "status": { "live": "Live", "shipped": "Shipped" },
+    "viewLive": "Live",
+    "viewCode": "Code"
+  },
   "hero": {
     "eyebrow": "AI Builder & Founder",
     "headline": "Ahmad Slik",

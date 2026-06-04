@@ -1,0 +1,67 @@
+import { useLocale, useTranslations } from "next-intl";
+import type { Project } from "@/types/project";
+
+export default function ProjectCard({ project }: { project: Project }) {
+  const t = useTranslations("projects");
+  const locale = useLocale() as "en" | "ar";
+
+  const visibleStack = project.stack.slice(0, 5);
+  const hiddenCount = project.stack.length - visibleStack.length;
+
+  const statusClass =
+    project.status === "live"
+      ? "bg-[var(--success)]/15 text-[var(--success)]"
+      : "bg-primary/15 text-primary";
+
+  return (
+    <article className="group rounded-xl border border-border bg-card p-6 flex flex-col gap-4 hover:border-primary/50 transition-colors">
+      <div className="flex items-start justify-between gap-3">
+        <h3 className="text-lg font-semibold text-foreground">{project.title}</h3>
+        <span className={`shrink-0 text-xs px-2 py-0.5 rounded-full ${statusClass}`}>
+          {t(`status.${project.status}` as Parameters<typeof t>[0])}
+        </span>
+      </div>
+
+      <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+        {project.tagline[locale]}
+      </p>
+
+      <div className="flex flex-wrap gap-1.5">
+        {visibleStack.map((s) => (
+          <span
+            key={s}
+            className="text-xs px-2 py-0.5 rounded border border-border text-muted-foreground"
+          >
+            {s}
+          </span>
+        ))}
+        {hiddenCount > 0 && (
+          <span className="text-xs px-2 py-0.5 rounded border border-border text-muted-foreground">
+            +{hiddenCount}
+          </span>
+        )}
+      </div>
+
+      <div className="flex items-center gap-4 mt-2">
+        {project.links.live && (
+          <a
+            href={project.links.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+          >
+            {t("viewLive")}
+          </a>
+        )}
+        <a
+          href={project.links.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+        >
+          {t("viewCode")}
+        </a>
+      </div>
+    </article>
+  );
+}

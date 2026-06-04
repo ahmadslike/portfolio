@@ -25,6 +25,13 @@
       "devops": "التطوير والنشر"
     }
   },
+  "projects": {
+    "label": "الأعمال",
+    "heading": "ما أطلقته",
+    "status": { "live": "مباشر", "shipped": "مُطلق" },
+    "viewLive": "مباشر",
+    "viewCode": "الكود"
+  },
   "hero": {
     "eyebrow": "AI Builder & Founder",
     "headline": "أحمد سليق",
