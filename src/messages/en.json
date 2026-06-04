@@ -9,6 +9,22 @@
     },
     "langSwitch": "العربية"
   },
+  "about": {
+    "label": "About",
+    "heading": "Who I Am",
+    "bio": "I'm a self-directed AI builder. Over a focused 30-day build I designed, shipped, and released (v2.0.0) a live multi-agent RAG system that anyone can use over the internet, and I've shipped an open-source Chrome extension alongside it. I work planning-first — architecture before code — and I care more about understanding why something works than copy-pasting how. I ship in public, daily, and I'd rather build real things people use than collect credentials."
+  },
+  "skills": {
+    "label": "Tech & Skills",
+    "heading": "What I Build With",
+    "categories": {
+      "ai": "AI / LLM",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "data": "Data & Vector",
+      "devops": "DevOps & Tooling"
+    }
+  },
   "hero": {
     "eyebrow": "AI Builder & Founder",
     "headline": "Ahmad Slik",
