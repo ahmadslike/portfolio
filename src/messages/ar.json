@@ -1,8 +1,19 @@
 {
-  "designSystemTest": {
-    "heading": "اختبار الـ design system",
-    "muted": "نص ثانوي لاختبار الوضوح.",
-    "button": "زر أساسي",
-    "success": "تم الإرسال ✓"
+  "header": {
+    "logo": "أحمد سليق",
+    "nav": {
+      "about": "عن أحمد",
+      "work": "الأعمال",
+      "theBuild": "مسيرة البناء",
+      "contact": "تواصل"
+    },
+    "langSwitch": "English"
+  },
+  "hero": {
+    "eyebrow": "AI Builder & Founder",
+    "headline": "أحمد سليق",
+    "tagline": "١٧ عاماً · أبني منتجات AI حقيقية وأوثّق كل خطوة.",
+    "ctaPrimary": "عرض المشاريع",
+    "ctaSecondary": "تواصل معي"
   }
 }

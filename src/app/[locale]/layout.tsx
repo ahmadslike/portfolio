@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Cairo } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import Header from "@/components/layout/Header";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -53,6 +54,7 @@ export default async function LocaleLayout({
       style={{ "--font-sans": sansVar } as React.CSSProperties}
     >
       <body className="flex flex-col">
+        <Header />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>

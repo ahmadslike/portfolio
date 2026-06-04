@@ -1,8 +1,19 @@
 {
-  "designSystemTest": {
-    "heading": "Design system check",
-    "muted": "Muted text sample for legibility.",
-    "button": "Primary button",
-    "success": "Sent ✓"
+  "header": {
+    "logo": "Ahmad Slik",
+    "nav": {
+      "about": "About",
+      "work": "Work",
+      "theBuild": "The Build",
+      "contact": "Contact"
+    },
+    "langSwitch": "العربية"
+  },
+  "hero": {
+    "eyebrow": "AI Builder & Founder",
+    "headline": "Ahmad Slik",
+    "tagline": "17 · Building production AI — shipping daily, in public.",
+    "ctaPrimary": "View Projects",
+    "ctaSecondary": "Get in Touch"
   }
 }
