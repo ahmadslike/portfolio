@@ -38,5 +38,23 @@
     "tagline": "17 · Building production AI — shipping daily, in public.",
     "ctaPrimary": "View Projects",
     "ctaSecondary": "Get in Touch"
+  },
+  "contact": {
+    "label": "Contact",
+    "heading": "Let's Build Something",
+    "intro": "Open to freelance work, collaborations, and conversations about AI. The fastest way to reach me is email.",
+    "emailLabel": "Email",
+    "copy": "Copy",
+    "copied": "Copied",
+    "links": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "x": "X",
+      "mostaql": "Mostaql"
+    }
+  },
+  "footer": {
+    "tagline": "Built with Next.js, Tailwind & shadcn/ui.",
+    "rights": "Ahmad Slik"
   }
 }

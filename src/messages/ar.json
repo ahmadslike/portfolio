@@ -38,5 +38,23 @@
     "tagline": "١٧ عاماً · أبني منتجات AI حقيقية وأوثّق كل خطوة.",
     "ctaPrimary": "عرض المشاريع",
     "ctaSecondary": "تواصل معي"
+  },
+  "contact": {
+    "label": "تواصل",
+    "heading": "لنبنِ شيئاً معاً",
+    "intro": "متاح للعمل الحر، التعاونات، والنقاشات حول الـ AI. أسرع طريقة للوصول إليّ هي الإيميل.",
+    "emailLabel": "الإيميل",
+    "copy": "نسخ",
+    "copied": "تم النسخ",
+    "links": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "x": "X",
+      "mostaql": "مستقل"
+    }
+  },
+  "footer": {
+    "tagline": "مبني بـ Next.js و Tailwind و shadcn/ui.",
+    "rights": "أحمد سليق"
   }
 }
