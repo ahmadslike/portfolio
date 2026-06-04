@@ -1,1 +1,8 @@
-{}
+{
+  "designSystemTest": {
+    "heading": "اختبار الـ design system",
+    "muted": "نص ثانوي لاختبار الوضوح.",
+    "button": "زر أساسي",
+    "success": "تم الإرسال ✓"
+  }
+}

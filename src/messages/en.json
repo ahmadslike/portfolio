@@ -1,1 +1,8 @@
-{}
+{
+  "designSystemTest": {
+    "heading": "Design system check",
+    "muted": "Muted text sample for legibility.",
+    "button": "Primary button",
+    "success": "Sent ✓"
+  }
+}
