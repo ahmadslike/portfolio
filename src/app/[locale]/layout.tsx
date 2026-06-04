@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cairo } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/layout/Header";
@@ -39,6 +40,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
+  const messages = await getMessages();
 
   const isAr = locale === "ar";
   const fontVars = isAr
@@ -54,8 +56,10 @@ export default async function LocaleLayout({
       style={{ "--font-sans": sansVar } as React.CSSProperties}
     >
       <body className="flex flex-col">
-        <Header />
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          <Header />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );
