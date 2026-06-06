@@ -7,7 +7,9 @@
       "theBuild": "The Build",
       "contact": "Contact"
     },
-    "langSwitch": "العربية"
+    "langSwitch": "العربية",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
   },
   "about": {
     "label": "About",

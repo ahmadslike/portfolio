@@ -7,7 +7,9 @@
       "theBuild": "مسيرة البناء",
       "contact": "تواصل"
     },
-    "langSwitch": "English"
+    "langSwitch": "English",
+    "menuOpen": "فتح القائمة",
+    "menuClose": "إغلاق القائمة"
   },
   "about": {
     "label": "عن أحمد",

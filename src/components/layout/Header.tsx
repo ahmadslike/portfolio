@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import { Menu, X } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const t = useTranslations("header");
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -42,9 +44,59 @@ export default function Header() {
               {t("nav.contact")}
             </a>
           </nav>
+
           <LanguageSwitcher />
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? t("menuClose") : t("menuOpen")}
+            className="lg:hidden text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
         </div>
       </div>
+
+      {open && (
+        <div
+          id="mobile-nav"
+          className="lg:hidden absolute top-full inset-x-0 bg-background/95 backdrop-blur-sm border-b border-border"
+        >
+          <nav className="flex flex-col">
+            <a
+              href="#about"
+              onClick={() => setOpen(false)}
+              className="block px-6 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-card transition-colors"
+            >
+              {t("nav.about")}
+            </a>
+            <a
+              href="#work"
+              onClick={() => setOpen(false)}
+              className="block px-6 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-card transition-colors"
+            >
+              {t("nav.work")}
+            </a>
+            <a
+              href="#the-build"
+              onClick={() => setOpen(false)}
+              className="block px-6 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-card transition-colors"
+            >
+              {t("nav.theBuild")}
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className="block px-6 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-card transition-colors"
+            >
+              {t("nav.contact")}
+            </a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
