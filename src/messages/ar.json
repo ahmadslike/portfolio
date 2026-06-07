@@ -34,6 +34,11 @@
     "viewLive": "مباشر",
     "viewCode": "الكود"
   },
+  "build": {
+    "label": "مسيرة البناء",
+    "heading": "مسيرة البناء — 30 يوماً، شحن يومي",
+    "subline": "بُني علناً، بشحن يومي لمدة 30 يوماً."
+  },
   "hero": {
     "eyebrow": "AI Builder & Founder",
     "headline": "أحمد سليق",

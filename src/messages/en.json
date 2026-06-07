@@ -34,6 +34,11 @@
     "viewLive": "Live",
     "viewCode": "Code"
   },
+  "build": {
+    "label": "The Build",
+    "heading": "The Build — 30 days, shipped daily",
+    "subline": "Built in public, shipping every day for 30 days."
+  },
   "hero": {
     "eyebrow": "AI Builder & Founder",
     "headline": "Ahmad Slik",
