@@ -63,5 +63,9 @@
   "footer": {
     "tagline": "Built with Next.js, Tailwind & shadcn/ui.",
     "rights": "Ahmad Slik"
+  },
+  "seo": {
+    "title": "Ahmad Slik — AI Builder & Founder",
+    "description": "17-year-old AI builder shipping production-grade RAG and multi-agent systems. Building in public, daily."
   }
 }
