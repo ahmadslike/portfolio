@@ -48,7 +48,7 @@ export function StaggerGroup({
 }) {
   const shouldReduce = useReducedMotion();
 
-  if (shouldReduce) {
+  if (shouldReduce === true) {
     // Mirror `as` — must not always return <div> (would inject div inside ol)
     const Tag = as as PlainTag;
     return <Tag className={className}>{children}</Tag>;
@@ -81,7 +81,7 @@ export function StaggerItem({
 }) {
   const shouldReduce = useReducedMotion();
 
-  if (shouldReduce) {
+  if (shouldReduce === true) {
     const Tag = as as PlainTag;
     return <Tag className={className}>{children}</Tag>;
   }

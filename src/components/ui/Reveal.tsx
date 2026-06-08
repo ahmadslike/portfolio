@@ -11,7 +11,7 @@ type Props = {
 export default function Reveal({ children, delay = 0 }: Props) {
   const shouldReduce = useReducedMotion();
 
-  if (shouldReduce) {
+  if (shouldReduce === true) {
     return <div>{children}</div>;
   }
 
