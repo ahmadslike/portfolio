@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { skillCategories } from "@/content/skills";
+import { StaggerGroup, StaggerItem } from "@/components/ui/Stagger";
 
 export default function Skills() {
   const t = useTranslations("skills");
@@ -14,9 +15,9 @@ export default function Skills() {
           {t("heading")}
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+        <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
           {skillCategories.map((cat) => (
-            <div key={cat.id}>
+            <StaggerItem key={cat.id}>
               <p className="text-sm font-medium text-foreground mb-4">
                 {t(cat.labelKey as Parameters<typeof t>[0])}
               </p>
@@ -30,9 +31,9 @@ export default function Skills() {
                   </span>
                 ))}
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );

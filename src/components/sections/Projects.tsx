@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { projects } from "@/content/projects";
 import ProjectCard from "@/components/projects/ProjectCard";
+import { StaggerGroup, StaggerItem } from "@/components/ui/Stagger";
 
 export default function Projects() {
   const t = useTranslations("projects");
@@ -15,11 +16,13 @@ export default function Projects() {
           {t("heading")}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
           {projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <StaggerItem key={project.slug}>
+              <ProjectCard project={project} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </div>
     </section>
   );
