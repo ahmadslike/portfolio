@@ -26,8 +26,11 @@ I'm a self-directed AI builder. Over a focused 30-day build I designed, shipped,
 - Python — async/await, type hints, Pydantic, venv workflow
 - FastAPI (**Beginner→Intermediate**, one production project) — StreamingResponse, AsyncGenerator, middleware, CORS, APIRouter
 
-**Frontend**
-- Next.js — RTL UI, client/server components, fetch + error/timeout handling
+**Web / Frontend**
+- Next.js (App Router, Server Components) · TypeScript (strict) · Tailwind CSS · shadcn/ui · Motion
+- Internationalization (next-intl) — bilingual Arabic RTL / English LTR using CSS logical properties
+- Programmatic SEO — per-locale metadata, Open Graph images, sitemap with hreflang
+- Accessibility-aware motion (prefers-reduced-motion), responsive, performance-minded
 
 **Data / Vector**
 - ChromaDB — collections, embeddings, semantic search, key-value caching · sentence-transformers (incl. multilingual)
@@ -60,6 +63,7 @@ A Chrome Extension (v1.2.0, MIT) that fixes Arabic text display in Claude AI by 
 - **Planning-first discipline** — I set the architecture before writing code
 - **Build in Public** — full daily transparency on my process and mistakes
 - I ask *why*, not just *how* — I refuse to copy-paste without understanding
+- Full-stack range — from Python AI backends to the bilingual, accessible front-end of this very site, built from scratch
 
 ## The Build — 30 days, shipped daily
 I built the Intelligent Research Assistant in public over 30 days — shipping something every single day and documenting the journey on LinkedIn.
@@ -80,7 +84,7 @@ Documented daily on LinkedIn: https://linkedin.com/in/ahmad-slik-99661840b
 - **LinkedIn:** https://linkedin.com/in/ahmad-slik-99661840b
 - **X:** https://x.com/Ahmad_slik
 - **Mostaql:** Ahmadslike
-- **Portfolio:** _(in progress)_
+- **Portfolio:** https://ahmadslik.netlify.app
 
 ---
 
