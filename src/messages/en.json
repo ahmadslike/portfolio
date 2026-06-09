@@ -32,7 +32,8 @@
     "heading": "Things I've Shipped",
     "status": { "live": "Live", "shipped": "Shipped" },
     "viewLive": "Live",
-    "viewCode": "Code"
+    "viewCode": "Code",
+    "viewCaseStudy": "View case study"
   },
   "build": {
     "label": "The Build",
@@ -63,6 +64,17 @@
   "footer": {
     "tagline": "Built with Next.js, Tailwind & shadcn/ui.",
     "rights": "Ahmad Slik"
+  },
+  "caseStudy": {
+    "back": "Back to home",
+    "liveDemo": "Live demo",
+    "code": "Code",
+    "stack": "Stack",
+    "stats": "By the numbers",
+    "agents": "The agents",
+    "decisions": "Key decisions",
+    "capabilities": "Capabilities",
+    "highlights": "Highlights"
   },
   "seo": {
     "title": "Ahmad Slik — AI Builder & Founder | RAG & Multi-Agent Systems",

@@ -1,9 +1,12 @@
 import { useLocale, useTranslations } from "next-intl";
 import type { Project } from "@/types/project";
+import { caseStudies } from "@/content/case-studies";
+import { Link } from "@/i18n/navigation";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const t = useTranslations("projects");
   const locale = useLocale() as "en" | "ar";
+  const hasCaseStudy = project.slug in caseStudies;
 
   const visibleStack = project.stack.slice(0, 5);
   const hiddenCount = project.stack.length - visibleStack.length;
@@ -61,6 +64,14 @@ export default function ProjectCard({ project }: { project: Project }) {
         >
           {t("viewCode")}
         </a>
+        {hasCaseStudy && (
+          <Link
+            href={`/work/${project.slug}`}
+            className="text-sm text-foreground hover:text-primary hover:underline inline-flex items-center gap-1 ms-auto"
+          >
+            {t("viewCaseStudy")} →
+          </Link>
+        )}
       </div>
     </article>
   );

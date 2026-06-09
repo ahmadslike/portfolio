@@ -32,7 +32,8 @@
     "heading": "ما أطلقته",
     "status": { "live": "مباشر", "shipped": "مُطلق" },
     "viewLive": "مباشر",
-    "viewCode": "الكود"
+    "viewCode": "الكود",
+    "viewCaseStudy": "عرض دراسة الحالة"
   },
   "build": {
     "label": "مسيرة البناء",
@@ -63,6 +64,17 @@
   "footer": {
     "tagline": "مبني بـ Next.js و Tailwind و shadcn/ui.",
     "rights": "أحمد سليق"
+  },
+  "caseStudy": {
+    "back": "العودة للرئيسية",
+    "liveDemo": "تجربة مباشرة",
+    "code": "الكود",
+    "stack": "التقنيات",
+    "stats": "بالأرقام",
+    "agents": "الوكلاء",
+    "decisions": "قرارات تقنية",
+    "capabilities": "ما يستطيع فعله",
+    "highlights": "أبرز ما فيه"
   },
   "seo": {
     "title": "أحمد سليق — مطوّر ومؤسس في الذكاء الاصطناعي | أنظمة RAG ومتعددة الوكلاء",
