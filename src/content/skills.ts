@@ -3,7 +3,7 @@ import type { SkillCategory } from "@/types/skills";
 export const skillCategories: SkillCategory[] = [
   {
     id: "ai",
-    labelKey: "skills.categories.ai",
+    labelKey: "categories.ai",
     skills: [
       "RAG Systems",
       "Multi-Agent Orchestration",
@@ -15,17 +15,17 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "backend",
-    labelKey: "skills.categories.backend",
+    labelKey: "categories.backend",
     skills: ["Python", "FastAPI", "Pydantic", "asyncio"],
   },
   {
     id: "frontend",
-    labelKey: "skills.categories.frontend",
+    labelKey: "categories.frontend",
     skills: ["Next.js", "TypeScript", "Tailwind CSS", "RTL UI"],
   },
   {
     id: "data",
-    labelKey: "skills.categories.data",
+    labelKey: "categories.data",
     skills: [
       "ChromaDB",
       "sentence-transformers",
@@ -35,7 +35,7 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: "devops",
-    labelKey: "skills.categories.devops",
+    labelKey: "categories.devops",
     skills: [
       "Git / GitHub",
       "Railway",
