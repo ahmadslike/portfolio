@@ -12,11 +12,11 @@ export default function Projects() {
         <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
           {t("label")}
         </p>
-        <h2 className="text-3xl font-bold text-foreground mb-8">
+        <h2 className="text-3xl font-bold text-foreground mb-12">
           {t("heading")}
         </h2>
 
-        <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project) => (
             <StaggerItem key={project.slug}>
               <ProjectCard project={project} />

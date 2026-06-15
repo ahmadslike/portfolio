@@ -17,7 +17,7 @@ export default function Hero() {
     >
       <div className="max-w-5xl mx-auto px-6 py-24">
         <motion.p
-          className="text-sm font-medium text-muted-foreground tracking-widest uppercase mb-4"
+          className="text-xs font-medium text-muted-foreground tracking-widest uppercase mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0 }}
