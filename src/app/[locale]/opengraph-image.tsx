@@ -1,10 +1,23 @@
 import { ImageResponse } from "next/og";
+import { setRequestLocale } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "Ahmad Slik — AI Builder & Founder";
 
-export default async function OgImage() {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export default async function OgImage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return new ImageResponse(
     (
       <div
