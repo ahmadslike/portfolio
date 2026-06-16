@@ -1,14 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
+
+const SECTION_IDS = ["about", "work", "the-build", "contact"] as const;
+type SectionId = typeof SECTION_IDS[number];
 
 export default function Header() {
   const t = useTranslations("header");
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [activeId, setActiveId] = useState<SectionId | null>(null);
+  const intersecting = useRef(new Set<string>());
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -16,12 +21,46 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const elements = SECTION_IDS
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            intersecting.current.add(entry.target.id);
+          } else {
+            intersecting.current.delete(entry.target.id);
+          }
+        }
+        setActiveId(
+          SECTION_IDS.find((id) => intersecting.current.has(id)) ?? null
+        );
+      },
+      { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+    );
+
+    for (const el of elements) observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const navClass = (id: SectionId) =>
+    `text-sm transition-colors ${
+      activeId === id
+        ? "text-foreground font-medium"
+        : "text-muted-foreground hover:text-foreground"
+    }`;
+
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-200 ${
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
         scrolled
-          ? "backdrop-blur-sm bg-background/80 border-b border-border"
-          : ""
+          ? "backdrop-blur-sm bg-background/95 border-border"
+          : "border-transparent"
       }`}
     >
       <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -31,16 +70,16 @@ export default function Header() {
 
         <div className="flex items-center gap-6">
           <nav className="hidden lg:flex items-center gap-6">
-            <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#about" className={navClass("about")}>
               {t("nav.about")}
             </a>
-            <a href="#work" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#work" className={navClass("work")}>
               {t("nav.work")}
             </a>
-            <a href="#the-build" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#the-build" className={navClass("the-build")}>
               {t("nav.theBuild")}
             </a>
-            <a href="#contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="#contact" className={navClass("contact")}>
               {t("nav.contact")}
             </a>
           </nav>
@@ -69,28 +108,28 @@ export default function Header() {
             <a
               href="#about"
               onClick={() => setOpen(false)}
-              className="block px-6 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-card transition-colors"
+              className={`block px-6 py-3 hover:bg-card ${navClass("about")}`}
             >
               {t("nav.about")}
             </a>
             <a
               href="#work"
               onClick={() => setOpen(false)}
-              className="block px-6 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-card transition-colors"
+              className={`block px-6 py-3 hover:bg-card ${navClass("work")}`}
             >
               {t("nav.work")}
             </a>
             <a
               href="#the-build"
               onClick={() => setOpen(false)}
-              className="block px-6 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-card transition-colors"
+              className={`block px-6 py-3 hover:bg-card ${navClass("the-build")}`}
             >
               {t("nav.theBuild")}
             </a>
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="block px-6 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-card transition-colors"
+              className={`block px-6 py-3 hover:bg-card ${navClass("contact")}`}
             >
               {t("nav.contact")}
             </a>
