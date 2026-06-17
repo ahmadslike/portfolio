@@ -18,6 +18,6 @@ export interface Project {
   links: ProjectLink;
   problem: LocalizedText;
   approach: LocalizedText;
-  result: LocalizedText;
+  result?: LocalizedText;
   highlights: LocalizedText[];
 }

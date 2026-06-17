@@ -26,7 +26,10 @@ export const projects: Project[] = [
     },
     problem: { en: "", ar: "" },
     approach: { en: "", ar: "" },
-    result: { en: "", ar: "" },
+    result: {
+      en: "~3000× faster on cached queries",
+      ar: "أسرع بـ ~3000 مرة على الاستعلامات المخزّنة",
+    },
     highlights: [],
   },
   {
@@ -44,7 +47,6 @@ export const projects: Project[] = [
     },
     problem: { en: "", ar: "" },
     approach: { en: "", ar: "" },
-    result: { en: "", ar: "" },
     highlights: [],
   },
 ];

@@ -29,6 +29,12 @@ export default function ProjectCard({ project }: { project: Project }) {
         {project.tagline[locale]}
       </p>
 
+      {project.result && (
+        <p className="text-sm font-medium text-primary leading-relaxed">
+          {project.result[locale]}
+        </p>
+      )}
+
       <div className="flex flex-wrap gap-1.5">
         {visibleStack.map((s) => (
           <span
