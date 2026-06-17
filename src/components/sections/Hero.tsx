@@ -9,13 +9,13 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-svh flex items-center"
+      className="min-h-svh flex items-start pt-32 sm:pt-40"
       style={{
         backgroundImage:
           "radial-gradient(ellipse 70% 50% at 50% 0%, oklch(0.2245 0.0326 267.99) 0%, transparent 100%)",
       }}
     >
-      <div className="max-w-5xl mx-auto px-6 py-24">
+      <div className="max-w-5xl mx-auto px-6 pb-24">
         <motion.p
           className="text-xs font-medium text-muted-foreground tracking-widest uppercase mb-4"
           initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export default function Hero() {
         >
           <a
             href="#work"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors"
           >
             {t("ctaPrimary")}
           </a>
