@@ -17,7 +17,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       : "bg-primary/15 text-primary";
 
   return (
-    <article className="group rounded-xl border border-border bg-card p-6 flex flex-col gap-4 hover:border-primary/50 transition-colors">
+    <article className="group rounded-xl border border-border bg-card p-6 flex flex-col gap-4 h-full hover:border-primary/50 transition-colors">
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-lg font-semibold text-foreground">{project.title}</h3>
         <span className={`shrink-0 text-xs px-2 py-0.5 rounded-full ${statusClass}`}>
@@ -25,7 +25,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         </span>
       </div>
 
-      <p className="text-sm text-muted-foreground leading-relaxed flex-1">
+      <p className="text-sm text-muted-foreground leading-relaxed">
         {project.tagline[locale]}
       </p>
 
@@ -51,7 +51,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
       </div>
 
-      <div className="flex items-center gap-4 mt-2">
+      <div className="flex items-center gap-4 mt-auto">
         {project.links.live && (
           <a
             href={project.links.live}
