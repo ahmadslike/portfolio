@@ -1,10 +1,11 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 export default function Hero() {
   const t = useTranslations("hero");
+  const reduce = useReducedMotion();
 
   return (
     <section
@@ -18,7 +19,7 @@ export default function Hero() {
       <div className="max-w-5xl mx-auto px-6 pb-24">
         <motion.p
           className="text-xs font-medium text-muted-foreground tracking-widest uppercase mb-4"
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0 }}
         >
@@ -27,7 +28,7 @@ export default function Hero() {
 
         <motion.h1
           className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-4"
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
         >
@@ -36,7 +37,7 @@ export default function Hero() {
 
         <motion.p
           className="text-lg sm:text-xl text-muted-foreground max-w-xl mb-8"
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
         >
@@ -45,7 +46,7 @@ export default function Hero() {
 
         <motion.div
           className="flex gap-4"
-          initial={{ opacity: 0, y: 20 }}
+          initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.35 }}
         >
