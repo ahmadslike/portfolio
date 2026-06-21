@@ -28,7 +28,7 @@ export default function Hero() {
 
         <motion.h1
           className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-4"
-          initial={reduce ? false : { opacity: 0, y: 20 }}
+          initial={reduce ? false : { y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
         >
