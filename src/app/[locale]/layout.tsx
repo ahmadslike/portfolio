@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Cairo } from "next/font/google";
+import { Geist, Cairo } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -14,12 +14,6 @@ export function generateStaticParams() {
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -78,9 +72,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   const isAr = locale === "ar";
-  const fontVars = isAr
-    ? cairo.variable
-    : `${geistSans.variable} ${geistMono.variable}`;
+  const fontVars = isAr ? cairo.variable : geistSans.variable;
   const sansVar = isAr ? "var(--font-cairo)" : "var(--font-geist-sans)";
 
   return (
