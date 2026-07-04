@@ -6,6 +6,7 @@ import { caseStudies } from "@/content/case-studies";
 import type { CaseStudySlug } from "@/content/case-studies";
 import { projects } from "@/content/projects";
 import { routing } from "@/i18n/routing";
+import { SITE_URL } from "@/lib/site";
 import { Link } from "@/i18n/navigation";
 import { GitHubIcon } from "@/components/icons/BrandIcons";
 import Reveal from "@/components/ui/Reveal";
@@ -26,15 +27,42 @@ export async function generateMetadata({
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
   const isAr = locale === "ar";
+  const ogLocale = isAr ? "ar_AR" : "en_US";
+  const title = project.title;
+  const description = project.tagline[isAr ? "ar" : "en"];
+  const url = `${SITE_URL}/${locale}/work/${slug}`;
   return {
-    title: project.title,
-    description: project.tagline[isAr ? "ar" : "en"],
+    title,
+    description,
     alternates: {
       canonical: `/${locale}/work/${slug}`,
       languages: {
         en: `/en/work/${slug}`,
         ar: `/ar/work/${slug}`,
+        "x-default": `/en/work/${slug}`,
       },
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "Ahmad Slik",
+      locale: ogLocale,
+      type: "website",
+      images: [
+        {
+          url: `${SITE_URL}/${locale}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: description,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`${SITE_URL}/${locale}/opengraph-image`],
     },
   };
 }

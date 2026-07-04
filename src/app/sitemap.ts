@@ -1,13 +1,18 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
 
-const SITE = "https://ahmadslik.netlify.app";
+const SITE = SITE_URL;
 
 const caseStudySlugs = ["intelligent-research-assistant"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
   const homeAlternates = {
-    languages: { en: `${SITE}/en`, ar: `${SITE}/ar` },
+    languages: {
+      en: `${SITE}/en`,
+      ar: `${SITE}/ar`,
+      "x-default": `${SITE}/en`,
+    },
   };
 
   const homeRoutes: MetadataRoute.Sitemap = [
@@ -21,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           en: `${SITE}/en/work/${slug}`,
           ar: `${SITE}/ar/work/${slug}`,
+          "x-default": `${SITE}/en/work/${slug}`,
         },
       };
       return [

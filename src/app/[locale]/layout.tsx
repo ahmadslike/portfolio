@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { SITE_URL } from "@/lib/site";
+import { socialLinks } from "@/content/social";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -36,12 +38,12 @@ export async function generateMetadata({
   const url = `/${locale}`;
 
   return {
-    metadataBase: new URL("https://ahmadslik.netlify.app"),
+    metadataBase: new URL(SITE_URL),
     title: { default: t("title"), template: `%s · Ahmad Slik` },
     description: t("description"),
     alternates: {
       canonical: url,
-      languages: { en: "/en", ar: "/ar" },
+      languages: { en: "/en", ar: "/ar", "x-default": "/en" },
     },
     openGraph: {
       title: t("title"),
@@ -75,6 +77,15 @@ export default async function LocaleLayout({
   const fontVars = isAr ? cairo.variable : geistSans.variable;
   const sansVar = isAr ? "var(--font-cairo)" : "var(--font-geist-sans)";
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Ahmad Slik",
+    url: SITE_URL,
+    jobTitle: "AI Builder",
+    sameAs: socialLinks.map((link) => link.href),
+  };
+
   return (
     <html
       lang={locale}
@@ -83,6 +94,10 @@ export default async function LocaleLayout({
       style={{ "--font-sans": sansVar } as React.CSSProperties}
     >
       <body className="flex flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <NextIntlClientProvider messages={messages}>
           <Header />
           {children}
