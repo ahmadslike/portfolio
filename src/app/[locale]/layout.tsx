@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Cairo } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
+import type { Locale } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
@@ -30,7 +31,7 @@ const cairo = Cairo({
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "seo" });

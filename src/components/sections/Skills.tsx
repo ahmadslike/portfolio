@@ -19,7 +19,7 @@ export default function Skills() {
           {skillCategories.map((cat) => (
             <StaggerItem key={cat.id}>
               <p className="text-sm font-medium text-foreground mb-4">
-                {t(cat.labelKey as Parameters<typeof t>[0])}
+                {t(cat.labelKey)}
               </p>
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill) => (

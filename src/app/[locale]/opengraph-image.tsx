@@ -3,6 +3,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { ImageResponse } from "next/og";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import type { Locale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import enMessages from "@/messages/en.json";
 
@@ -525,7 +526,7 @@ async function buildArabicAssets(
 export default async function OgImage({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }) {
   const { locale } = await params;
   setRequestLocale(locale);

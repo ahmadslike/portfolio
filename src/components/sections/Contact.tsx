@@ -45,7 +45,7 @@ export default function Contact() {
                 className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-muted-foreground hover:border-primary hover:text-foreground transition-colors"
               >
                 <link.icon className="size-4" />
-                {t(`links.${link.id}` as Parameters<typeof t>[0])}
+                {t(`links.${link.id}`)}
               </a>
             ))}
           </div>

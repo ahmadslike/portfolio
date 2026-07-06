@@ -1,9 +1,12 @@
 import type { ComponentType } from "react";
 import { Briefcase } from "lucide-react";
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons/BrandIcons";
+import type en from "@/messages/en.json";
+
+type SocialLinkId = keyof typeof en.contact.links;
 
 export interface SocialLink {
-  id: string;
+  id: SocialLinkId;
   href: string;
   icon: ComponentType<{ className?: string }>;
 }

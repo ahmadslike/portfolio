@@ -21,7 +21,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-lg font-semibold text-foreground">{project.title}</h3>
         <span className={`shrink-0 text-xs px-2 py-0.5 rounded-full ${statusClass}`}>
-          {t(`status.${project.status}` as Parameters<typeof t>[0])}
+          {t(`status.${project.status}`)}
         </span>
       </div>
 
