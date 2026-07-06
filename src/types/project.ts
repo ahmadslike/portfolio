@@ -16,8 +16,5 @@ export interface Project {
   tagline: LocalizedText;
   stack: string[];
   links: ProjectLink;
-  problem: LocalizedText;
-  approach: LocalizedText;
   result?: LocalizedText;
-  highlights: LocalizedText[];
 }

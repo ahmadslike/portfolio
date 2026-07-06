@@ -24,13 +24,10 @@ export const projects: Project[] = [
       live: "https://research-assistant-ai.netlify.app",
       github: "https://github.com/Ahmadslike/intelligent-research-assistant",
     },
-    problem: { en: "", ar: "" },
-    approach: { en: "", ar: "" },
     result: {
       en: "~3000× faster on cached queries",
       ar: "أسرع بـ ~3000 مرة على الاستعلامات المخزّنة",
     },
-    highlights: [],
   },
   {
     slug: "arabi-rtl-for-claude",
@@ -45,8 +42,5 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/Ahmadslike/arabi-rtl-for-claude",
     },
-    problem: { en: "", ar: "" },
-    approach: { en: "", ar: "" },
-    highlights: [],
   },
 ];
