@@ -45,6 +45,9 @@ export interface CaseStudy {
   // — Highlights —
   highlights: CaseStudyHighlight[];
   // — Stack —
+  // القائمة الكاملة والمُرقّمة (versioned) للتقنيات لصفحة الـ case study —
+  // مقصود أن تكون أكثر تفصيلاً من شارات البطاقة القصيرة في content/projects.ts.
+  // مش تكرار — لا تدمجهما.
   stack: string[];                  // التقنيات (لغة-محايد)
 }
 
