@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 const SECTION_IDS = ["about", "work", "the-build", "contact"] as const;
@@ -70,18 +71,18 @@ export default function Header() {
 
         <div className="flex items-center gap-6">
           <nav className="hidden lg:flex items-center gap-6">
-            <a href="#about" className={navClass("about")}>
+            <Link href="/#about" className={navClass("about")}>
               {t("nav.about")}
-            </a>
-            <a href="#work" className={navClass("work")}>
+            </Link>
+            <Link href="/#work" className={navClass("work")}>
               {t("nav.work")}
-            </a>
-            <a href="#the-build" className={navClass("the-build")}>
+            </Link>
+            <Link href="/#the-build" className={navClass("the-build")}>
               {t("nav.theBuild")}
-            </a>
-            <a href="#contact" className={navClass("contact")}>
+            </Link>
+            <Link href="/#contact" className={navClass("contact")}>
               {t("nav.contact")}
-            </a>
+            </Link>
           </nav>
 
           <LanguageSwitcher />
@@ -105,34 +106,34 @@ export default function Header() {
           className="lg:hidden absolute top-full inset-x-0 bg-background/95 backdrop-blur-sm border-b border-border"
         >
           <nav className="flex flex-col">
-            <a
-              href="#about"
+            <Link
+              href="/#about"
               onClick={() => setOpen(false)}
               className={`block px-6 py-3 hover:bg-card ${navClass("about")}`}
             >
               {t("nav.about")}
-            </a>
-            <a
-              href="#work"
+            </Link>
+            <Link
+              href="/#work"
               onClick={() => setOpen(false)}
               className={`block px-6 py-3 hover:bg-card ${navClass("work")}`}
             >
               {t("nav.work")}
-            </a>
-            <a
-              href="#the-build"
+            </Link>
+            <Link
+              href="/#the-build"
               onClick={() => setOpen(false)}
               className={`block px-6 py-3 hover:bg-card ${navClass("the-build")}`}
             >
               {t("nav.theBuild")}
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              href="/#contact"
               onClick={() => setOpen(false)}
               className={`block px-6 py-3 hover:bg-card ${navClass("contact")}`}
             >
               {t("nav.contact")}
-            </a>
+            </Link>
           </nav>
         </div>
       )}
