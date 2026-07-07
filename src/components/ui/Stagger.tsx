@@ -1,7 +1,17 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import type { ElementType, ReactNode } from "react";
+import { useEffect, useLayoutEffect, useState, type ReactNode } from "react";
+
+// motion's useReducedMotion() resolves the real matchMedia value synchronously
+// on its very first client render (before hydration finishes), while the
+// server always renders the animated branch. Applying the reduced branch
+// immediately would make the client's first render diverge from the server's
+// HTML and trigger a hydration mismatch. useLayoutEffect (no-op on the
+// server) defers the switch until strictly after hydration commits, so the
+// first render always matches the server, then flips synchronously before
+// paint — no mismatch, no visible flash.
+const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 // container only orchestrates timing — no visual change on the wrapper itself
 const container = {
@@ -34,9 +44,6 @@ const motionItemMap = {
 type GroupAs = keyof typeof motionGroupMap;
 type ItemAs = keyof typeof motionItemMap;
 
-// PlainTag used for reduced-motion fallback — accepts only what we pass (className + children)
-type PlainTag = ElementType<{ className?: string; children?: ReactNode }>;
-
 export function StaggerGroup({
   children,
   className,
@@ -47,16 +54,31 @@ export function StaggerGroup({
   as?: GroupAs;
 }) {
   const shouldReduce = useReducedMotion();
+  const [reduceApplied, setReduceApplied] = useState(false);
 
-  if (shouldReduce === true) {
-    // Mirror `as` — must not always return <div> (would inject div inside ol)
-    const Tag = as as PlainTag;
-    return <Tag className={className}>{children}</Tag>;
-  }
+  useIsomorphicLayoutEffect(() => {
+    if (shouldReduce) setReduceApplied(true);
+  }, [shouldReduce]);
 
   // Cast to typeof motion.div so TS accepts variants/whileInView/viewport —
   // all motion elements share these props; only className+children differ by tag.
   const Tag = motionGroupMap[as] as typeof motion.div;
+
+  if (reduceApplied) {
+    // Stay on the same motion element (never swap to a plain host tag). The
+    // server always renders the animated branch below, baking the "hidden"
+    // variant style into the SSR HTML for descendant StaggerItems. Applying
+    // this branch only after mount keeps the first client render identical
+    // to the server's, avoiding a hydration mismatch; initial={false} +
+    // animate="show" then propagates to children and overwrites their DOM
+    // style imperatively.
+    return (
+      <Tag className={className} variants={container} initial={false} animate="show">
+        {children}
+      </Tag>
+    );
+  }
+
   return (
     <Tag
       className={className}
@@ -79,14 +101,8 @@ export function StaggerItem({
   className?: string;
   as?: ItemAs;
 }) {
-  const shouldReduce = useReducedMotion();
-
-  if (shouldReduce === true) {
-    const Tag = as as PlainTag;
-    return <Tag className={className}>{children}</Tag>;
-  }
-
-  // No initial/animate here — variant propagation from parent StaggerGroup handles it
+  // No initial/animate here — variant state (hidden/show, and initial={false}
+  // when reduced motion is on) propagates down from the parent StaggerGroup.
   const Tag = motionItemMap[as] as typeof motion.div;
   return (
     <Tag className={className} variants={item}>
