@@ -15,6 +15,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState<SectionId | null>(null);
   const intersecting = useRef(new Set<string>());
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -48,6 +50,35 @@ export default function Header() {
     for (const el of elements) observer.observe(el);
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as Node;
+      if (
+        menuRef.current?.contains(target) ||
+        toggleRef.current?.contains(target)
+      ) {
+        return;
+      }
+      setOpen(false);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [open]);
 
   const navClass = (id: SectionId) =>
     `text-sm transition-colors ${
@@ -88,12 +119,13 @@ export default function Header() {
           <LanguageSwitcher />
 
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? t("menuClose") : t("menuOpen")}
-            className="lg:hidden text-muted-foreground hover:text-foreground transition-colors"
+            className="-m-3 lg:hidden p-3 text-muted-foreground hover:text-foreground transition-colors"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -102,6 +134,7 @@ export default function Header() {
 
       {open && (
         <div
+          ref={menuRef}
           id="mobile-nav"
           className="lg:hidden absolute top-full inset-x-0 bg-background/95 backdrop-blur-sm border-b border-border"
         >
