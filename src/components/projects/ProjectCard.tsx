@@ -57,7 +57,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             href={project.links.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-primary-text hover:underline inline-flex items-center gap-1"
+            className="text-sm text-primary-text hover:underline inline-flex items-center gap-1 py-3 -my-3"
           >
             {t("viewLive")}
           </a>
@@ -66,14 +66,14 @@ export default function ProjectCard({ project }: { project: Project }) {
           href={project.links.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-primary-text hover:underline inline-flex items-center gap-1"
+          className="text-sm text-primary-text hover:underline inline-flex items-center gap-1 py-3 -my-3"
         >
           {t("viewCode")}
         </a>
         {hasCaseStudy && (
           <Link
             href={`/work/${project.slug}`}
-            className="text-sm text-foreground hover:text-primary-text hover:underline inline-flex items-center gap-1 ms-auto"
+            className="text-sm text-foreground hover:text-primary-text hover:underline inline-flex items-center gap-1 ms-auto py-3 -my-3"
           >
             {t("viewCaseStudy")} →
           </Link>

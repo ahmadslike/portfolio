@@ -15,7 +15,7 @@ export default function Contact() {
           <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
             {t("label")}
           </p>
-          <h2 className="text-3xl font-bold text-foreground mb-8">
+          <h2 className="text-3xl font-bold text-foreground mb-12">
             {t("heading")}
           </h2>
         </Reveal>

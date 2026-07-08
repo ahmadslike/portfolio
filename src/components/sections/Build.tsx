@@ -16,7 +16,7 @@ export default function Build() {
         <h2 className="text-3xl font-bold text-foreground mb-2">
           {t("heading")}
         </h2>
-        <p className="text-sm text-muted-foreground mb-10">
+        <p className="text-sm text-muted-foreground mb-12">
           {t("subline")}
         </p>
 

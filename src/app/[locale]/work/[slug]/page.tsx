@@ -95,7 +95,7 @@ export default async function CaseStudyPage({
         {/* Back */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-12"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors py-3 -mt-3 mb-9"
         >
           <ArrowLeft className="size-4 rtl:rotate-180" />
           {cs("back")}
@@ -277,7 +277,7 @@ export default async function CaseStudyPage({
               {study.highlights.map((hl, i) => (
                 <div
                   key={i}
-                  className="bg-card border border-border rounded-lg p-5"
+                  className="bg-card border border-border rounded-xl p-5"
                 >
                   <div className="font-semibold text-foreground">
                     {t(hl.title)}
@@ -295,7 +295,7 @@ export default async function CaseStudyPage({
         <div className="border-t border-border pt-10 flex flex-wrap items-center justify-between gap-4">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors py-3 -my-3"
           >
             <ArrowLeft className="size-4 rtl:rotate-180" />
             {cs("back")}
