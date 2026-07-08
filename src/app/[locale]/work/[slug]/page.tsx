@@ -159,7 +159,7 @@ export default async function CaseStudyPage({
                   key={stat.value}
                   className="bg-card border border-border rounded-xl p-5"
                 >
-                  <div className="text-3xl sm:text-4xl font-bold text-primary">
+                  <div className="text-3xl sm:text-4xl font-bold text-primary-text">
                     {stat.value}
                   </div>
                   <div className="text-xs text-muted-foreground mt-2 leading-relaxed">
@@ -204,7 +204,7 @@ export default async function CaseStudyPage({
             <ol className="space-y-5">
               {study.agents.map((agent, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <span className="flex size-8 items-center justify-center rounded-full bg-primary/15 text-primary font-semibold text-sm shrink-0">
+                  <span className="flex size-8 items-center justify-center rounded-full bg-primary/15 text-primary-text font-semibold text-sm shrink-0">
                     {i + 1}
                   </span>
                   <div>

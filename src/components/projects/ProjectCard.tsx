@@ -14,7 +14,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   const statusClass =
     project.status === "live"
       ? "bg-[var(--success)]/15 text-[var(--success)]"
-      : "bg-primary/15 text-primary";
+      : "bg-primary/15 text-primary-text";
 
   return (
     <article className="group rounded-xl border border-border bg-card p-6 flex flex-col gap-4 h-full hover:border-primary/50 transition-colors">
@@ -30,7 +30,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       </p>
 
       {project.result && (
-        <p className="text-sm font-medium text-primary leading-relaxed">
+        <p className="text-sm font-medium text-primary-text leading-relaxed">
           {project.result[locale]}
         </p>
       )}
@@ -57,7 +57,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             href={project.links.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+            className="text-sm text-primary-text hover:underline inline-flex items-center gap-1"
           >
             {t("viewLive")}
           </a>
@@ -66,14 +66,14 @@ export default function ProjectCard({ project }: { project: Project }) {
           href={project.links.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-primary hover:underline inline-flex items-center gap-1"
+          className="text-sm text-primary-text hover:underline inline-flex items-center gap-1"
         >
           {t("viewCode")}
         </a>
         {hasCaseStudy && (
           <Link
             href={`/work/${project.slug}`}
-            className="text-sm text-foreground hover:text-primary hover:underline inline-flex items-center gap-1 ms-auto"
+            className="text-sm text-foreground hover:text-primary-text hover:underline inline-flex items-center gap-1 ms-auto"
           >
             {t("viewCaseStudy")} →
           </Link>

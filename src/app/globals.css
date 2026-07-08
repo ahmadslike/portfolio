@@ -32,6 +32,7 @@
     --color-secondary: var(--secondary);
     --color-primary-foreground: var(--primary-foreground);
     --color-primary: var(--primary);
+    --color-primary-text: var(--primary-text);
     --color-popover-foreground: var(--popover-foreground);
     --color-popover: var(--popover);
     --color-card-foreground: var(--card-foreground);
@@ -55,6 +56,8 @@
     --popover:              oklch(0.2245 0.0326 267.99);
     --popover-foreground:   oklch(0.9276 0.0058 264.53);
     --primary:              oklch(0.5854 0.2041 277.12);
+    /* text-only tint of --primary — WCAG AA on dark bgs; fills keep --primary */
+    --primary-text:         oklch(0.67 0.16 277.12);
     --primary-foreground:   oklch(0.9842 0.0034 247.86);
     --secondary:            oklch(0.2245 0.0326 267.99);
     --secondary-foreground: oklch(0.9276 0.0058 264.53);
@@ -91,6 +94,8 @@
     --popover:              oklch(0.2245 0.0326 267.99);
     --popover-foreground:   oklch(0.9276 0.0058 264.53);
     --primary:              oklch(0.5854 0.2041 277.12);
+    /* text-only tint of --primary — WCAG AA on dark bgs; fills keep --primary */
+    --primary-text:         oklch(0.67 0.16 277.12);
     --primary-foreground:   oklch(0.9842 0.0034 247.86);
     --secondary:            oklch(0.2245 0.0326 267.99);
     --secondary-foreground: oklch(0.9276 0.0058 264.53);
