@@ -11,18 +11,18 @@ Audited at HEAD `ffed9dd` (2026-07-07) by 5 independent read-only auditors (a11y
 | F3 | HIGH | Mobile hamburger was a 20×20px bare icon (~half the 44px touch-target minimum) — now 44×44 effective hit area, zero visual shift | `d597e0c` |
 | F4 | MED | Mobile menu lacked Escape-to-close (with focus return) and click-outside-to-close | `d597e0c` |
 | F5 | MED | Generated favicon `/icon?<hash>` was locale-prefixed by the middleware matcher → 307 → 404 console error on every page load (Lighthouse Best Practices 96→100 blocker; predates sprint) | `c972190` |
+| F6 | HIGH | `text-primary` (#6366F1) as text failed WCAG AA (badge 3.27:1, result line + links 3.84:1) — new `--primary-text` tint oklch(0.67 0.16 277.12) ≈ #7e88f5, same hue, used ONLY for accent text (4.70:1 worst-case composited); fills/buttons keep #6366F1 | `c8c8ad6` |
+| F7 | MED | Case-study card radius unified to rounded-xl; heading-block→content rhythm unified to mb-12; 5 inline action links expanded to 44px tap height with zero visual shift | `6f5990a` |
 
-## Open — awaiting design decisions (Ahmad)
+## Ruled by owner (2026-07-08)
 
-| Sev | Finding | Location |
-|---|---|---|
-| HIGH | `text-primary` (#6366F1) as normal-size text fails WCAG AA: status badge 3.27:1 composited, result line + Live/Code links 3.84:1 (needs 4.5:1) | ProjectCard.tsx:17,33,60,69 |
-| HIGH | "Live" status badge uses `--success` green; brief restricts green to "message sent" states (single-accent rule). Overlaps the contrast finding — one recolor could resolve both | ProjectCard.tsx:16 |
-| MED | Hero "View Projects" CTA contrast 4.26:1 (#f8fafc on #6366F1) — the sole cause of Lighthouse A11y 96 (EN) vs 100 (AR); pre-existing baseline gap | Hero CTA |
-| MED | CopyEmail "copied" state uses `--success` green — borderline vs the brief's literal "message sent" wording | CopyEmail.tsx:26 |
-| MED | `rounded-xl` (Stats) vs `rounded-lg` (Highlights) on visually identical case-study cards | work/[slug]/page.tsx:160,280 |
-| MED | Section-heading bottom margin varies without pattern: mb-8 (About/Contact), mb-12 (Skills/Projects), mb-2+subline (Build) | sections/* |
-| MED | Inline action links ("Live", "Code", "View case study", "Back to home") ~20px tall on mobile; adjacent spacing mitigates | ProjectCard.tsx, work/[slug]/page.tsx |
+| Finding | Ruling |
+|---|---|
+| Accent-as-text contrast | FIXED — see F6 |
+| "Live" badge `--success` green | KEEP — green = active/live is a universal semantic convention; single-accent rule applies to decorative accents, not status semantics |
+| CopyEmail "copied" green | KEEP — same reasoning |
+| Card radius / h2 margin rhythm / inline-link tap targets | FIXED — see F7 |
+| Hero "View Projects" CTA 4.26:1 | OPEN (MED) — label is 14px @ weight 600 = WCAG normal text, so 4.26:1 genuinely fails AA; even pure white on #6366F1 is only 4.47:1, so no text-color fix exists. Fix requires darkening the CTA fill or enlarging the label — brand-fill change deferred to owner's explicit call |
 
 ## Logged LOW (not actioned; fix only if trivial post-decisions)
 
